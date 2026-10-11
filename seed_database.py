@@ -185,6 +185,24 @@ GENRE_CATALOG = {
             "For Whom the Bell Tolls", "Aces High", "Sweet Leaf", "War Ensemble", "A Tout Le Monde",
             "Snuff", "Sugar", "Turbo Lover", "Domination", "So Far Away"
         ]
+    },
+    "Pakistani Music": {
+        "artists": [
+            "Atif Aslam", "Nusrat Fateh Ali Khan", "Rahat Fateh Ali Khan", "Ali Sethi", "Young Stunners",
+            "Strings", "Junoon", "Ali Zafar", "Kaifi Khalil", "Abida Parveen"
+        ],
+        "keywords": [
+            "Pasoori", "Afreen Afreen", "Tajdar-e-Haram", "Aadat", "Dil Dil Pakistan",
+            "Sayonee", "Tu Hai Kahan", "Kahani Suno 2.0", "Ghalat Fehmi", "Chaap Tilak",
+            "Woh Lamhe", "Sar Kiye Ye Pahar", "Duur", "Dhaani", "Tera Woh Pyar",
+            "Faasle", "Baari", "Gumaan", "Afsanay", "Phool Khil Jayein",
+            "Agency", "Downers At Dusk", "Open Letter", "Kana Yaari", "Tu Jhoom",
+            "Man Aamadeh Am", "Kinna Sohna", "Ye Jo Halka Halka Suroor Hai", "Dam Mast Qalandar", "Sanwal Mor Moharan",
+            "Mera Piya Ghar Aaya", "Billo De Ghar", "Nach Punjaban", "Preeto", "Sajna Door",
+            "Channo", "Jhoom", "Rockstar", "Chal Dil Mere", "Peechay Hutt",
+            "Aisay Kaisay", "Joona", "Falsafa", "Sibbi Song", "Maahi Ve",
+            "Habibi", "Tum Tum", "Bulleya", "Jazba Junoon", "Jal Pari"
+        ]
     }
 }
 
