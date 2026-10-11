@@ -1,6 +1,6 @@
-# Music Player Database & Web Player (Top 50 Songs per Genre)
+# RM Player • Akatsuki & Itachi Top 50 Web Player
 
-A full-stack music player application and relational SQL database supporting genres, artists, albums, songs, playlists, user listening history, and dynamic **Top 50 charts for every genre** with real studio audio streaming.
+A full-stack music player application and relational SQL database supporting genres, artists, albums, songs, playlists, user listening history, dynamic **Top 50 charts for every genre** with real studio audio streaming, and Content-Based Machine Learning Recommendations.
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uchiha Itachi • Top 50 Music Realm</title>
+  <title>RM Player • Akatsuki & Itachi Music Realm</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+JP:wght@600;900&display=swap" rel="stylesheet">
@@ -17,6 +17,8 @@
       --accent-glow: #e11d48;
       --accent-dark: #7f1d1d;
       --accent-gradient: linear-gradient(135deg, #e11d48 0%, #b91c1c 50%, #450a0a 100%);
+      --akatsuki-red: #b91c1c;
+      --akatsuki-border: #ffffff;
       --itachi-gold: #c5a059;
       --text-main: #f8fafc;
       --text-muted: #a89bb2;
@@ -83,6 +85,27 @@
       100% { transform: translate(110vw, -80px) scaleX(1); opacity: 0; }
     }
 
+    /* Ambient Akatsuki Red Clouds (Subtle Floating Motif) */
+    .akatsuki-cloud-ambient {
+      position: fixed;
+      pointer-events: none;
+      opacity: 0.08;
+      z-index: 0;
+      filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.45));
+      animation: floatAkatsukiCloud 44s linear infinite;
+    }
+
+    .akatsuki-cloud-1 { top: 18%; left: -140px; width: 110px; animation-duration: 46s; }
+    .akatsuki-cloud-2 { top: 58%; left: -140px; width: 90px; animation-duration: 38s; animation-delay: 14s; }
+    .akatsuki-cloud-3 { top: 82%; left: -140px; width: 125px; animation-duration: 52s; animation-delay: 24s; }
+
+    @keyframes floatAkatsukiCloud {
+      0% { transform: translate(0, 0) scale(0.95); opacity: 0; }
+      12% { opacity: 0.09; }
+      88% { opacity: 0.09; }
+      100% { transform: translate(115vw, -35px) scale(1.05); opacity: 0; }
+    }
+
     /* Layout */
     .app-container {
       display: flex;
@@ -134,10 +157,30 @@
       100% { box-shadow: 0 0 22px rgba(225, 29, 72, 0.8), 0 0 35px rgba(185, 28, 28, 0.4); }
     }
 
+    .brand-icon-wrapper {
+      position: relative;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .brand-akatsuki-badge {
+      position: absolute;
+      bottom: -3px;
+      right: -6px;
+      background: #000000;
+      border-radius: 6px;
+      padding: 1px 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px rgba(220, 38, 38, 0.7);
+      border: 1px solid rgba(220, 38, 38, 0.4);
+    }
+
     .brand-title {
       font-size: 20px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       background: linear-gradient(135deg, #fff 0%, #fecdd3 50%, #fda4af 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -145,13 +188,53 @@
       flex-direction: column;
     }
 
+    .rm-accent {
+      background: linear-gradient(135deg, #ff3b5c 0%, #e11d48 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 14px rgba(255, 59, 92, 0.65);
+      margin-right: 2px;
+    }
+
     .brand-kanji {
       font-family: 'Noto Serif JP', serif;
       font-size: 11px;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       color: #e11d48;
       font-weight: 700;
-      margin-top: 1px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .akatsuki-shu-pill {
+      display: inline-block;
+      background: radial-gradient(circle, #b91c1c 0%, #450a0a 100%);
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      border-radius: 4px;
+      padding: 0 5px;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0;
+      box-shadow: 0 0 6px rgba(225, 29, 72, 0.6);
+      vertical-align: middle;
+      line-height: 14px;
+    }
+
+    .player-akatsuki-tag {
+      font-size: 10px;
+      background: rgba(185, 28, 28, 0.2);
+      border: 1px solid rgba(225, 29, 72, 0.4);
+      color: #fda4af;
+      padding: 1px 6px;
+      border-radius: 8px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
     }
 
     /* MUSIC Full Form Classical Card */
@@ -1306,27 +1389,55 @@
   <div class="crow-ambient crow-2">🦅</div>
   <div class="crow-ambient crow-3">🦅</div>
 
+  <!-- Ambient Akatsuki Red Clouds (Subtle Motif) -->
+  <div class="akatsuki-cloud-ambient akatsuki-cloud-1">
+    <svg viewBox="0 0 100 60" style="width: 100%; height: 100%;" fill="none">
+      <path d="M 28 46 C 14 46 8 37 12 28 C 16 20 27 19 34 24 C 38 14 55 12 65 20 C 75 14 90 20 91 30 C 94 40 85 47 74 46 C 66 46 62 44 54 46 C 44 48 37 46 28 46 Z" fill="#b91c1c" stroke="#ffffff" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M 32 38 C 24 38 21 32 25 27 C 29 22 36 23 38 28 C 39 32 35 34 32 32" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="akatsuki-cloud-ambient akatsuki-cloud-2">
+    <svg viewBox="0 0 100 60" style="width: 100%; height: 100%;" fill="none">
+      <path d="M 28 46 C 14 46 8 37 12 28 C 16 20 27 19 34 24 C 38 14 55 12 65 20 C 75 14 90 20 91 30 C 94 40 85 47 74 46 C 66 46 62 44 54 46 C 44 48 37 46 28 46 Z" fill="#b91c1c" stroke="#ffffff" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M 32 38 C 24 38 21 32 25 27 C 29 22 36 23 38 28 C 39 32 35 34 32 32" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="akatsuki-cloud-ambient akatsuki-cloud-3">
+    <svg viewBox="0 0 100 60" style="width: 100%; height: 100%;" fill="none">
+      <path d="M 28 46 C 14 46 8 37 12 28 C 16 20 27 19 34 24 C 38 14 55 12 65 20 C 75 14 90 20 91 30 C 94 40 85 47 74 46 C 66 46 62 44 54 46 C 44 48 37 46 28 46 Z" fill="#b91c1c" stroke="#ffffff" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M 32 38 C 24 38 21 32 25 27 C 29 22 36 23 38 28 C 39 32 35 34 32 32" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
   <div class="app-container">
     <!-- Left Sidebar -->
     <aside class="sidebar">
       <div class="brand">
-        <!-- SVG Itachi Mangekyo Sharingan -->
-        <div class="mangekyo-icon">
-          <svg viewBox="0 0 100 100" style="width: 34px; height: 34px;">
-            <circle cx="50" cy="50" r="48" fill="#d91414"/>
-            <circle cx="50" cy="50" r="46" fill="none" stroke="#220002" stroke-width="2"/>
-            <circle cx="50" cy="50" r="14" fill="#000000"/>
-            <!-- 3 Mangekyo Blades -->
-            <path d="M 50 50 Q 55 12 50 4 Q 30 25 50 50 Z" fill="#000000"/>
-            <path d="M 50 50 Q 55 12 50 4 Q 30 25 50 50 Z" transform="rotate(120 50 50)" fill="#000000"/>
-            <path d="M 50 50 Q 55 12 50 4 Q 30 25 50 50 Z" transform="rotate(240 50 50)" fill="#000000"/>
-            <circle cx="50" cy="50" r="5" fill="#d91414"/>
-            <circle cx="50" cy="50" r="2" fill="#000000"/>
-          </svg>
+        <!-- SVG Itachi Mangekyo Sharingan + Akatsuki Cloud mini badge -->
+        <div class="brand-icon-wrapper">
+          <div class="mangekyo-icon">
+            <svg viewBox="0 0 100 100" style="width: 34px; height: 34px;">
+              <circle cx="50" cy="50" r="48" fill="#d91414"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="#220002" stroke-width="2"/>
+              <circle cx="50" cy="50" r="14" fill="#000000"/>
+              <!-- 3 Mangekyo Blades -->
+              <path d="M 50 50 Q 55 12 50 4 Q 30 25 50 50 Z" fill="#000000"/>
+              <path d="M 50 50 Q 55 12 50 4 Q 30 25 50 50 Z" transform="rotate(120 50 50)" fill="#000000"/>
+              <path d="M 50 50 Q 55 12 50 4 Q 30 25 50 50 Z" transform="rotate(240 50 50)" fill="#000000"/>
+              <circle cx="50" cy="50" r="5" fill="#d91414"/>
+              <circle cx="50" cy="2" fill="#000000"/>
+            </svg>
+          </div>
+          <div class="brand-akatsuki-badge" title="Akatsuki Red Cloud (赤雲)">
+            <svg viewBox="0 0 100 60" style="width: 18px; height: 11px;" fill="none">
+              <path d="M 28 46 C 14 46 8 37 12 28 C 16 20 27 19 34 24 C 38 14 55 12 65 20 C 75 14 90 20 91 30 C 94 40 85 47 74 46 C 66 46 62 44 54 46 C 44 48 37 46 28 46 Z" fill="#b91c1c" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M 32 38 C 24 38 21 32 25 27 C 29 22 36 23 38 28 C 39 32 35 34 32 32" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
         </div>
         <div>
-          <div class="brand-title">ITACHI</div>
-          <div class="brand-kanji">宇智波 イタチ</div>
+          <div class="brand-title"><span class="rm-accent">RM</span> PLAYER</div>
+          <div class="brand-kanji">暁 AKATSUKI • 宇智波 <span class="akatsuki-shu-pill" title="Itachi's Ring: 朱 (Vermilion / Shu)">朱</span></div>
         </div>
       </div>
 
@@ -1366,7 +1477,7 @@
         </div>
         <div class="top-actions">
           <input type="file" id="localMp3Input" accept="audio/*" style="display: none;">
-          <button class="btn btn-secondary" id="openMp3Btn" title="Play your own full-length MP3 file directly in the Itachi Player">📁 Play Full MP3</button>
+          <button class="btn btn-secondary" id="openMp3Btn" title="Play your own full-length MP3 file directly in RM Player">📁 Play Full MP3</button>
           <button class="btn btn-secondary" id="openAddModalBtn">➕ Add Track</button>
         </div>
       </div>
@@ -1383,14 +1494,17 @@
             <span>✨</span> M.U.S.I.C: Melody · Universal · Soul · Inspiration · Creation
           </div>
           <span class="hero-tag">
-            <span>🔴</span> Mangekyō Archive • 宇智波一族
+            <svg viewBox="0 0 100 60" style="width: 16px; height: 10px; display: inline-block; vertical-align: middle; margin-right: 4px;" fill="none">
+              <path d="M 28 46 C 14 46 8 37 12 28 C 16 20 27 19 34 24 C 38 14 55 12 65 20 C 75 14 90 20 91 30 C 94 40 85 47 74 46 C 66 46 62 44 54 46 C 44 48 37 46 28 46 Z" fill="#b91c1c" stroke="#ffffff" stroke-width="3"/>
+            </svg>
+            RM PLAYER • 暁 AKATSUKI ARCHIVE • 朱
           </span>
           <h1 class="hero-title" id="activeGenreTitle">Top 50</h1>
           <p class="hero-desc" id="activeGenreDesc">Most played and highest-rated tracks updated from SQL database rankings.</p>
           <div class="hero-stats">
             <span>Chart: <strong>Top 50 Masterpieces</strong></span>
             <span>Streams: <strong id="genrePlaysStat">0</strong></span>
-            <span>Domain: <strong>Tsukuyomi / SQLite</strong></span>
+            <span>Domain: <strong>Tsukuyomi / RM Realm</strong></span>
           </div>
         </div>
         <button class="btn btn-primary" id="playAllBtn" style="font-size: 14px; padding: 14px 26px;">
@@ -1402,7 +1516,7 @@
       <div class="audio-notice-bar">
         <div class="notice-left">
           <span class="notice-eye">👁️</span>
-          <span><strong>Infinite Tsukuyomi Engine:</strong> Free commercial previews are 30s clips by copyright law. <strong>♾️ Extended Play (Active)</strong> seamlessly loops every track across its full 3:30+ duration, or click <strong>▶ Full Track</strong> to stream 100% complete studio masters directly on YouTube.</span>
+          <span><strong>RM Player • Akatsuki Engine:</strong> Free commercial previews are 30s clips by copyright law. <strong>♾️ Extended Play (Active)</strong> seamlessly loops every track across its full 3:30+ duration, or click <strong>▶ Full Track</strong> to stream 100% complete studio masters directly on YouTube.</span>
         </div>
         <div class="notice-right">
           <button class="notice-mp3-btn" id="bannerMp3Btn">📁 Load Full MP3</button>
@@ -1469,6 +1583,7 @@
         <div style="display: flex; gap: 6px; align-items: center; margin-top: 3px;">
           <div class="player-audio-badge" id="playerGenreBadge" style="display: none;">Genjutsu Stream</div>
           <span class="player-mode-tag extended" id="playerModeTag" title="Extended Play: Seamless loop across full duration">♾️ EXTENDED</span>
+          <span class="player-akatsuki-tag" title="RM Player • Akatsuki Sound Realm">☁️ 暁 RM</span>
         </div>
       </div>
       <div class="eq-bar-wrap" id="eqAnimation" style="display: none;">
@@ -1513,7 +1628,7 @@
   <div class="modal-backdrop" id="addSongModal">
     <div class="modal">
       <div class="modal-title">
-        <span>Add Track to Clan Archive</span>
+        <span>Add Track to RM Archive</span>
         <button class="close-modal" id="closeModalBtn">&times;</button>
       </div>
       <form id="addSongForm">
