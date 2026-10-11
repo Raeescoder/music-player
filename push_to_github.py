@@ -68,7 +68,7 @@ def github_api_request(url, token, data=None, method="GET"):
             msg = err_body
         raise Exception(f"HTTP {e.code} on {method} {url}: {msg}")
 
-def push_to_github(token, repo_name, make_private=False):
+def push_to_github(token, repo_name, commit_message="Update player", make_private=False):
     print("1. Verifying GitHub token...")
     user_info = github_api_request("https://api.github.com/user", token)
     username = user_info.get("login")
@@ -146,9 +146,9 @@ def push_to_github(token, repo_name, make_private=False):
     )
 
     # Create Commit
-    print("5. Creating Commit...")
+    print(f"5. Creating Commit ('{commit_message}')...")
     commit_payload = {
-        "message": "Deploy Top 50 Music Player with GitHub Actions & SQLite database",
+        "message": commit_message,
         "tree": tree_res["sha"]
     }
     if parent_sha:
@@ -211,8 +211,9 @@ def push_to_github(token, repo_name, make_private=False):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python push_to_github.py <GITHUB_TOKEN> [repo_name]")
+        print("Usage: python push_to_github.py <GITHUB_TOKEN> [repo_name] [commit_message]")
         sys.exit(1)
     tok = sys.argv[1]
     name = sys.argv[2] if len(sys.argv) > 2 else "music-player"
-    push_to_github(tok, name)
+    msg = sys.argv[3] if len(sys.argv) > 3 else "Update player"
+    push_to_github(tok, name, commit_message=msg)

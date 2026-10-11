@@ -1008,6 +1008,186 @@
       box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
     }
 
+    /* AI Recommender Navigation & Components */
+    .ai-nav-item {
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.16) 0%, rgba(14, 10, 18, 0.5) 100%) !important;
+      border: 1px solid rgba(225, 29, 72, 0.45) !important;
+      color: #fda4af !important;
+      font-weight: 700 !important;
+      box-shadow: 0 0 12px rgba(225, 29, 72, 0.25);
+      margin-bottom: 8px;
+    }
+
+    .ai-nav-item:hover, .ai-nav-item.active {
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.38) 0%, rgba(185, 28, 28, 0.25) 100%) !important;
+      border-color: #ff4d6d !important;
+      box-shadow: 0 0 18px rgba(225, 29, 72, 0.55);
+    }
+
+    .ai-badge {
+      background: #e11d48 !important;
+      color: white !important;
+      font-weight: 800;
+      letter-spacing: 1px;
+      box-shadow: 0 0 8px #e11d48;
+    }
+
+    .ai-pill {
+      background: linear-gradient(135deg, rgba(225, 29, 72, 0.3) 0%, rgba(30, 10, 20, 0.8) 100%) !important;
+      border: 1px solid rgba(225, 29, 72, 0.6) !important;
+      color: #fda4af !important;
+      font-weight: 700;
+    }
+
+    .ai-pill:hover, .ai-pill.active {
+      background: var(--accent) !important;
+      color: #fff !important;
+      box-shadow: 0 0 16px rgba(225, 29, 72, 0.75);
+    }
+
+    /* AI Taste Profile Card */
+    .ai-taste-card {
+      background: linear-gradient(135deg, rgba(225, 29, 72, 0.15) 0%, rgba(18, 10, 24, 0.9) 60%, rgba(8, 4, 10, 0.95) 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(225, 29, 72, 0.2);
+    }
+
+    .ai-taste-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .ai-taste-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #000;
+      border: 2px solid #e11d48;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 16px rgba(225, 29, 72, 0.6);
+      flex-shrink: 0;
+    }
+
+    .ai-archetype-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--itachi-gold);
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
+    .ai-taste-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      max-width: 620px;
+      line-height: 1.4;
+    }
+
+    .ai-rerank-btn {
+      margin-left: auto;
+      font-size: 12px;
+      padding: 8px 16px;
+      border-color: rgba(225, 29, 72, 0.4);
+    }
+
+    .ai-taste-bars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(225, 29, 72, 0.15);
+    }
+
+    .ai-taste-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .ai-taste-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .ai-taste-bar-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .ai-taste-bar-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 3px;
+      box-shadow: 0 0 8px rgba(225, 29, 72, 0.6);
+      transition: width 0.4s ease;
+    }
+
+    /* AI Match Badges in Table */
+    .ai-match-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #fda4af;
+      background: rgba(225, 29, 72, 0.18);
+      border: 1px solid rgba(225, 29, 72, 0.5);
+      padding: 3px 8px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(225, 29, 72, 0.35);
+      white-space: nowrap;
+    }
+
+    .ai-reason-pill {
+      display: inline-block;
+      font-size: 10.5px;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    .ai-toast {
+      position: fixed;
+      bottom: 110px;
+      right: 32px;
+      background: linear-gradient(135deg, rgba(20, 10, 24, 0.95) 0%, rgba(8, 4, 10, 0.98) 100%);
+      border: 1px solid var(--border-glow);
+      color: #fecdd3;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(225, 29, 72, 0.4);
+      z-index: 1000;
+      font-size: 12.5px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      animation: fadeInToast 0.3s ease;
+    }
+
+    @keyframes fadeInToast {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Equalizer animation - Blood Red Flames */
     .eq-bar-wrap {
       display: flex;
@@ -1162,6 +1342,15 @@
         </div>
       </div>
 
+      <!-- Personalized AI Navigation -->
+      <div class="nav-header">Personalized ML</div>
+      <ul class="genre-list" style="margin-bottom: 14px;">
+        <li class="genre-item ai-nav-item" id="navAiRecommends">
+          <span>🔮 Mangekyō AI Picks</span>
+          <span class="genre-badge ai-badge">ML</span>
+        </li>
+      </ul>
+
       <div class="nav-header">Musical Realms</div>
       <ul class="genre-list" id="genreList">
         <!-- Dynamically populated -->
@@ -1217,6 +1406,23 @@
         </div>
         <div class="notice-right">
           <button class="notice-mp3-btn" id="bannerMp3Btn">📁 Load Full MP3</button>
+        </div>
+      </div>
+
+      <!-- AI Taste Divination Radar Card -->
+      <div class="ai-taste-card" id="aiTasteCard" style="display: none;">
+        <div class="ai-taste-header">
+          <div class="ai-taste-avatar">🔮</div>
+          <div style="flex: 1;">
+            <div class="ai-archetype-badge" id="aiArchetypeBadge">Tsukuyomi Melodic Resonance Master</div>
+            <div class="ai-taste-desc" id="aiTasteDesc">Content-based vector embedding analyzing your liked songs, listening frequency, and acoustic similarities in real time.</div>
+          </div>
+          <button class="btn btn-secondary ai-rerank-btn" id="aiRerankBtn" title="Recompute cosine similarity vectors across all 550 songs">
+            ⚡ Re-run ML Model
+          </button>
+        </div>
+        <div class="ai-taste-bars" id="aiTasteBars">
+          <!-- Dynamically populated with user's top genres & affinity % -->
         </div>
       </div>
 
@@ -1364,6 +1570,8 @@
     let virtualLoopOffset = 0; // Accumulated seconds across loops
     let activeTrackDuration = 210; // Real full duration of current song (seconds)
     let isLocalAudio = false; // Whether user loaded their own offline MP3
+    let isAiMode = false; // Whether viewing Machine Learning Recommendations
+    let listeningHistory = {}; // song_id -> play count for ML taste vector
 
     // HTML5 Real Audio Player instance
     const audioPlayer = new Audio();
@@ -1564,7 +1772,9 @@
       playerArtist.textContent = track.artist_name;
       totalTimeEl.textContent = formatTime(activeTrackDuration);
       playerGenreBadge.style.display = 'inline-block';
-      playerGenreBadge.textContent = `${activeGenreName} • Amaterasu`;
+      playerGenreBadge.textContent = isAiMode && track.match_score 
+        ? `🔮 AI Match ${track.match_score}% • Amaterasu` 
+        : `${activeGenreName} • Amaterasu`;
 
       // Update YouTube Full Song button
       const ytBtn = document.getElementById('youtubeFullBtn');
@@ -1602,8 +1812,9 @@
       // Highlight active row in table
       renderTracklist(currentPlaylist);
 
-      // Record streaming play in SQLite database if applicable
+      // Record streaming play in SQLite database and local ML history
       if (!track.is_local && typeof track.song_id === 'number') {
+        recordSongPlay(track.song_id);
         fetch(`/api/play/${track.song_id}`, { method: 'POST' }).catch(() => {});
       }
 
@@ -1758,7 +1969,26 @@
       }
     };
 
-    // Like toggle
+    // Machine Learning Interaction Logger & Toast
+    function recordSongPlay(songId) {
+      if (!songId) return;
+      listeningHistory[songId] = (listeningHistory[songId] || 0) + 1;
+      localStorage.setItem('soundwave_history', JSON.stringify(listeningHistory));
+    }
+
+    function showAiToast(msg) {
+      const toast = document.getElementById('aiToast');
+      const text = document.getElementById('aiToastText');
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.style.display = 'flex';
+      clearTimeout(window.aiToastTimer);
+      window.aiToastTimer = setTimeout(() => {
+        toast.style.display = 'none';
+      }, 2600);
+    }
+
+    // Like toggle with dynamic ML feedback
     async function toggleLike(e, songId) {
       e.stopPropagation();
       fetch('/api/favorites/toggle', {
@@ -1769,14 +1999,21 @@
 
       if (favorites.has(songId)) {
         favorites.delete(songId);
+        showAiToast("🔮 AI Taste: Preference Removed");
       } else {
         favorites.add(songId);
+        showAiToast("🔮 AI Taste: +3.0 Affinity Boost Added!");
       }
       localStorage.setItem('soundwave_favs', JSON.stringify([...favorites]));
-      renderTracklist(currentPlaylist);
+
+      if (isAiMode) {
+        selectAiRecommendations();
+      } else {
+        renderTracklist(currentPlaylist);
+      }
     }
 
-    // Render Tracklist with Itachi Theme Badges & Full Track Links
+    // Render Tracklist with Itachi Theme Badges & Full Track Links & ML Match Scores
     function renderTracklist(tracks) {
       tracklistBody.innerHTML = '';
       if (tracks.length === 0) {
@@ -1790,7 +2027,9 @@
         tr.className = `track-row ${isCurrent ? 'playing' : ''}`;
 
         let rankBadge = `#${track.genre_rank || (idx + 1)}`;
-        if (track.genre_rank === 1) rankBadge = `<span class="rank-badge-1">🥇 1</span>`;
+        if (track.match_score) {
+          rankBadge = `<span class="ai-match-badge cinzel">🔮 ${track.match_score}%</span>`;
+        } else if (track.genre_rank === 1) rankBadge = `<span class="rank-badge-1">🥇 1</span>`;
         else if (track.genre_rank === 2) rankBadge = `<span class="rank-badge-2">🥈 2</span>`;
         else if (track.genre_rank === 3) rankBadge = `<span class="rank-badge-3">🥉 3</span>`;
         else if (track.is_local) rankBadge = `<span style="color: #38bdf8; font-size: 14px;">★</span>`;
@@ -1810,6 +2049,7 @@
               <div class="track-text">
                 <span class="track-name">${track.song_title}</span>
                 <span class="track-artist">${track.artist_name}</span>
+                ${track.match_score ? `<span class="ai-reason-pill">✦ Match ${track.match_score}% • ${track.genre_name || 'Sound'}</span>` : ''}
               </div>
             </div>
           </td>
@@ -1861,8 +2101,212 @@
       });
     }
 
+    // ============================================================================
+    // MACHINE LEARNING ENGINE: CONTENT-BASED VECTOR COSINE SIMILARITY
+    // ============================================================================
+    function getGenreIndexMap() {
+      const map = {};
+      genres.forEach((g, idx) => {
+        map[g.genre_id] = idx;
+      });
+      return map;
+    }
+
+    function getSongVector(song, genreIndexMap) {
+      const numG = Object.keys(genreIndexMap).length || 11;
+      const vec = new Array(numG + 2).fill(0.0);
+      if (song.genre_id && genreIndexMap[song.genre_id] !== undefined) {
+        vec[genreIndexMap[song.genre_id]] = 1.0;
+      }
+      vec[numG] = (parseFloat(song.popularity_score) || 75.0) / 100.0;
+      vec[numG + 1] = (parseFloat(song.duration_seconds) || 210.0) / 360.0;
+      return vec;
+    }
+
+    function cosineSimilarity(v1, v2) {
+      let dot = 0.0, m1 = 0.0, m2 = 0.0;
+      for (let i = 0; i < v1.length; i++) {
+        dot += v1[i] * v2[i];
+        m1 += v1[i] * v1[i];
+        m2 += v2[i] * v2[i];
+      }
+      if (m1 === 0.0 || m2 === 0.0) return 0.0;
+      return dot / (Math.sqrt(m1) * Math.sqrt(m2));
+    }
+
+    async function computeMLRecommendations() {
+      try {
+        const res = await fetch('/api/recommendations');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.length > 0) return data;
+        }
+      } catch (e) {}
+
+      if (!allSongsStaticCache) {
+        try {
+          const res = await fetch('data/all_songs.json');
+          allSongsStaticCache = await res.json();
+        } catch {
+          allSongsStaticCache = currentPlaylist || [];
+        }
+      }
+
+      const genreMap = getGenreIndexMap();
+      const vectorDim = Object.keys(genreMap).length + 2;
+      const userVec = new Array(vectorDim).fill(0.0);
+      let totalWeights = 0.0;
+
+      allSongsStaticCache.forEach(song => {
+        if (favorites.has(song.song_id)) {
+          const sv = getSongVector(song, genreMap);
+          for (let i = 0; i < vectorDim; i++) userVec[i] += 3.0 * sv[i];
+          totalWeights += 3.0;
+        }
+      });
+
+      allSongsStaticCache.forEach(song => {
+        const cnt = listeningHistory[song.song_id] || 0;
+        if (cnt > 0) {
+          const w = 1.5 * Math.min(cnt, 5);
+          const sv = getSongVector(song, genreMap);
+          for (let i = 0; i < vectorDim; i++) userVec[i] += w * sv[i];
+          totalWeights += w;
+        }
+      });
+
+      if (totalWeights === 0.0) {
+        allSongsStaticCache.forEach(song => {
+          const gn = (song.genre_name || '').toLowerCase();
+          if (gn.includes('pakistani') || gn.includes('pop')) {
+            const sv = getSongVector(song, genreMap);
+            for (let i = 0; i < vectorDim; i++) userVec[i] += 1.0 * sv[i];
+            totalWeights += 1.0;
+          }
+        });
+      }
+
+      const ranked = [];
+      allSongsStaticCache.forEach(song => {
+        if (favorites.has(song.song_id)) return;
+        const sv = getSongVector(song, genreMap);
+        const sim = cosineSimilarity(userVec, sv);
+        const popBoost = 1.0 + 0.05 * ((song.popularity_score || 70) / 100.0);
+        const finalScore = Math.min(sim * popBoost, 1.0);
+        const matchPct = Math.round(finalScore * 1000) / 10;
+
+        ranked.push({
+          ...song,
+          match_score: matchPct,
+          ai_explanation: `${matchPct}% Cosine match with your ${song.genre_name || 'sound'} taste`
+        });
+      });
+
+      ranked.sort((a, b) => b.match_score - a.match_score);
+      return ranked.slice(0, 50);
+    }
+
+    function renderAiTasteProfileCard() {
+      const card = document.getElementById('aiTasteCard');
+      if (!card) return;
+      card.style.display = 'block';
+
+      const genreCounts = {};
+      favorites.forEach(fid => {
+        const s = allSongsStaticCache?.find(x => x.song_id === fid);
+        if (s && s.genre_name) {
+          genreCounts[s.genre_name] = (genreCounts[s.genre_name] || 0) + 3;
+        }
+      });
+      Object.keys(listeningHistory).forEach(hid => {
+        const s = allSongsStaticCache?.find(x => x.song_id == hid);
+        if (s && s.genre_name) {
+          genreCounts[s.genre_name] = (genreCounts[s.genre_name] || 0) + 1;
+        }
+      });
+
+      let sortedGenres = Object.entries(genreCounts).sort((a, b) => b[1] - a[1]);
+      if (sortedGenres.length === 0) {
+        sortedGenres = [["Pakistani Music", 12], ["Pop", 7], ["Rock", 4], ["Classical", 3]];
+      }
+
+      const topGenre = sortedGenres[0][0];
+      let archetype = "Tsukuyomi Melodic Explorer";
+      if (topGenre.toLowerCase().includes("pakistani")) {
+        archetype = "Sufi & Coke Studio Resonance Master 🇵🇰";
+      } else if (topGenre.toLowerCase().includes("rock")) {
+        archetype = "Amaterasu Crimson Rock Virtuoso 🎸";
+      } else if (topGenre.toLowerCase().includes("pop")) {
+        archetype = "Universal Pop Harmonic Diviner ✨";
+      } else if (topGenre.toLowerCase().includes("hip")) {
+        archetype = "Shadow Flow Lyricist 🎤";
+      } else {
+        archetype = `${topGenre} Realm Virtuoso ✦`;
+      }
+
+      const badgeEl = document.getElementById('aiArchetypeBadge');
+      if (badgeEl) badgeEl.textContent = archetype;
+
+      const descEl = document.getElementById('aiTasteDesc');
+      if (descEl) {
+        const favCount = favorites.size;
+        const playCount = Object.values(listeningHistory).reduce((a, b) => a + b, 0);
+        descEl.textContent = `Content-based vector embedding analyzing ${favCount} liked tracks and ${playCount} play interactions in real-time.`;
+      }
+
+      const barsEl = document.getElementById('aiTasteBars');
+      if (barsEl) {
+        const maxVal = sortedGenres[0][1] || 1;
+        barsEl.innerHTML = sortedGenres.slice(0, 4).map(([gName, val]) => {
+          const pct = Math.min(Math.round((val / maxVal) * 100), 100);
+          return `
+            <div class="ai-taste-bar-item">
+              <div class="ai-taste-bar-label">
+                <span>${gName}</span>
+                <span style="color: var(--itachi-gold);">${pct}% Affinity</span>
+              </div>
+              <div class="ai-taste-bar-track">
+                <div class="ai-taste-bar-fill" style="width: ${pct}%;"></div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    async function selectAiRecommendations() {
+      isAiMode = true;
+      currentGenre = null;
+
+      document.querySelectorAll('.genre-item').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.genre-pill').forEach(el => el.classList.remove('active'));
+
+      const navAi = document.getElementById('navAiRecommends');
+      if (navAi) navAi.classList.add('active');
+      const pillAi = document.getElementById('pillAiRecommends');
+      if (pillAi) pillAi.classList.add('active');
+
+      heroTitle.textContent = "Mangekyō AI • Your Realm";
+      heroDesc.textContent = "Personalized Machine Learning recommendations generated via content-based vector embeddings & cosine similarity.";
+      genrePlaysStat.textContent = formatNumber(Object.values(listeningHistory).reduce((a, b) => a + b, 0) * 100000 + 7800000);
+
+      currentPlaylist = await computeMLRecommendations();
+      currentTrackIndex = -1;
+
+      renderAiTasteProfileCard();
+      renderTracklist(currentPlaylist);
+      showAiToast("🔮 Machine Learning Recommendations Computed!");
+    }
+
     // Load initial data (Dual Localhost API / GitHub Pages static mode)
     async function init() {
+      // Load listening history
+      try {
+        listeningHistory = JSON.parse(localStorage.getItem('soundwave_history') || '{}');
+      } catch {
+        listeningHistory = {};
+      }
+
       try {
         const res = await fetch('/api/genres');
         if (!res.ok) throw new Error();
@@ -1890,6 +2334,17 @@
       renderGenrePills();
       populateFormGenres();
 
+      // Hook up AI Recommender buttons
+      const navAi = document.getElementById('navAiRecommends');
+      if (navAi) navAi.onclick = selectAiRecommendations;
+      const rerankBtn = document.getElementById('aiRerankBtn');
+      if (rerankBtn) {
+        rerankBtn.onclick = () => {
+          showAiToast("⚡ Re-running Vector Embedding Model...");
+          selectAiRecommendations();
+        };
+      }
+
       // Open on Pakistani Music by default!
       const pakGenre = genres.find(g => g.name.toLowerCase().includes('pakistani'));
       if (pakGenre) {
@@ -1914,7 +2369,7 @@
       sortedGenres.forEach(g => {
         const li = document.createElement('li');
         const isPak = g.name.toLowerCase().includes('pakistani');
-        const isActive = currentGenre && currentGenre.genre_id === g.genre_id;
+        const isActive = !isAiMode && currentGenre && currentGenre.genre_id === g.genre_id;
         li.className = `genre-item ${isActive ? 'active' : ''} ${isPak ? 'genre-featured' : ''}`;
         const prefix = isPak ? '🇵🇰 ' : '🎵 ';
         li.innerHTML = `
@@ -1931,7 +2386,15 @@
       if (!pillsBar) return;
       pillsBar.innerHTML = '';
 
-      // Pin Pakistani Music first in the pills bar too!
+      // AI Recommendations Pill (first in pills bar)
+      const aiPill = document.createElement('div');
+      aiPill.id = 'pillAiRecommends';
+      aiPill.className = `genre-pill ai-pill ${isAiMode ? 'active' : ''}`;
+      aiPill.innerHTML = `<span>🔮</span> <span>AI For You</span>`;
+      aiPill.onclick = () => selectAiRecommendations();
+      pillsBar.appendChild(aiPill);
+
+      // Pin Pakistani Music next
       const sortedGenres = [...genres].sort((a, b) => {
         const aIsPak = a.name.toLowerCase().includes('pakistani');
         const bIsPak = b.name.toLowerCase().includes('pakistani');
@@ -1943,7 +2406,7 @@
       sortedGenres.forEach(g => {
         const pill = document.createElement('div');
         const isPak = g.name.toLowerCase().includes('pakistani');
-        const isActive = currentGenre && currentGenre.genre_id === g.genre_id;
+        const isActive = !isAiMode && currentGenre && currentGenre.genre_id === g.genre_id;
         pill.className = `genre-pill ${isActive ? 'active' : ''} ${isPak ? 'pak-pill' : ''}`;
         const icon = isPak ? '🇵🇰' : '✦';
         pill.innerHTML = `<span>${icon}</span> <span>${g.name}</span>`;
@@ -1963,6 +2426,13 @@
     }
 
     async function selectGenre(genreId) {
+      isAiMode = false;
+      const aiCard = document.getElementById('aiTasteCard');
+      if (aiCard) aiCard.style.display = 'none';
+
+      const navAi = document.getElementById('navAiRecommends');
+      if (navAi) navAi.classList.remove('active');
+
       currentGenre = genres.find(g => g.genre_id === genreId);
       renderGenreList();
       renderGenrePills();
@@ -2146,5 +2616,11 @@
 
     init();
   </script>
+
+  <!-- AI Real-time Update Toast -->
+  <div class="ai-toast" id="aiToast">
+    <span>🔮</span>
+    <span id="aiToastText">AI Taste Profile Updated (+3.0 Affinity)</span>
+  </div>
 </body>
 </html>
