@@ -859,14 +859,153 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      width: 220px;
+      width: 290px;
       justify-content: flex-end;
     }
 
     .volume-slider {
-      width: 90px;
+      width: 85px;
       accent-color: var(--accent);
       cursor: pointer;
+    }
+
+    /* Full Track YouTube Button */
+    .btn-yt-full {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(225, 29, 72, 0.22) 0%, rgba(185, 28, 28, 0.12) 100%);
+      border: 1px solid rgba(225, 29, 72, 0.45);
+      color: #fda4af;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-family: 'Cinzel', serif;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn-yt-full:hover {
+      background: #e11d48;
+      color: #ffffff;
+      border-color: #ff4d6d;
+      box-shadow: 0 0 16px rgba(225, 29, 72, 0.85);
+      transform: translateY(-1px);
+    }
+
+    /* Table row YouTube link */
+    .row-yt-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(225, 29, 72, 0.1);
+      border: 1px solid rgba(225, 29, 72, 0.3);
+      color: #fecdd3;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Cinzel', serif;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .row-yt-btn:hover {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #ef4444;
+      box-shadow: 0 0 10px rgba(225, 29, 72, 0.6);
+      transform: scale(1.05);
+    }
+
+    /* Player Mode Tag (Extended / Preview / Local) */
+    .player-mode-tag {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-family: 'Cinzel', serif;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .player-mode-tag.extended {
+      color: #fda4af;
+      background: rgba(225, 29, 72, 0.18);
+      border: 1px solid rgba(225, 29, 72, 0.45);
+      box-shadow: 0 0 8px rgba(225, 29, 72, 0.35);
+    }
+
+    .player-mode-tag.preview {
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+    }
+
+    .player-mode-tag.local {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    /* Audio Playback Notice Bar */
+    .audio-notice-bar {
+      background: linear-gradient(90deg, rgba(225, 29, 72, 0.12) 0%, rgba(20, 10, 24, 0.8) 100%);
+      border: 1px solid rgba(225, 29, 72, 0.25);
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .audio-notice-bar strong {
+      color: var(--itachi-gold);
+    }
+
+    .notice-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.4;
+    }
+
+    .notice-eye {
+      font-size: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .notice-mp3-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .notice-mp3-btn:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent);
+      color: white;
+      box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
     }
 
     /* Equalizer animation - Blood Red Flames */
@@ -1037,6 +1176,8 @@
           <input type="text" id="searchInput" placeholder="Search song title, artist, or realm...">
         </div>
         <div class="top-actions">
+          <input type="file" id="localMp3Input" accept="audio/*" style="display: none;">
+          <button class="btn btn-secondary" id="openMp3Btn" title="Play your own full-length MP3 file directly in the Itachi Player">📁 Play Full MP3</button>
           <button class="btn btn-secondary" id="openAddModalBtn">➕ Add Track</button>
         </div>
       </div>
@@ -1068,16 +1209,28 @@
         </button>
       </div>
 
+      <!-- Playback Notice & Guidance Bar -->
+      <div class="audio-notice-bar">
+        <div class="notice-left">
+          <span class="notice-eye">👁️</span>
+          <span><strong>Infinite Tsukuyomi Engine:</strong> Free commercial previews are 30s clips by copyright law. <strong>♾️ Extended Play (Active)</strong> seamlessly loops every track across its full 3:30+ duration, or click <strong>▶ Full Track</strong> to stream 100% complete studio masters directly on YouTube.</span>
+        </div>
+        <div class="notice-right">
+          <button class="notice-mp3-btn" id="bannerMp3Btn">📁 Load Full MP3</button>
+        </div>
+      </div>
+
       <!-- Songs Table -->
       <table class="track-table">
         <thead>
           <tr>
-            <th style="width: 60px; text-align: center;">Rank</th>
+            <th style="width: 55px; text-align: center;">Rank</th>
             <th>Title & Performer</th>
             <th>Album</th>
             <th>Popularity</th>
             <th>Plays</th>
             <th>Duration</th>
+            <th style="width: 85px; text-align: center;">Full Track</th>
             <th style="width: 40px;"></th>
           </tr>
         </thead>
@@ -1107,7 +1260,10 @@
       <div>
         <div class="player-song-title" id="playerTitle">Select a track to summon</div>
         <div class="player-artist-name" id="playerArtist">—</div>
-        <div class="player-audio-badge" id="playerGenreBadge" style="display: none;">Genjutsu Stream</div>
+        <div style="display: flex; gap: 6px; align-items: center; margin-top: 3px;">
+          <div class="player-audio-badge" id="playerGenreBadge" style="display: none;">Genjutsu Stream</div>
+          <span class="player-mode-tag extended" id="playerModeTag" title="Extended Play: Seamless loop across full duration">♾️ EXTENDED</span>
+        </div>
       </div>
       <div class="eq-bar-wrap" id="eqAnimation" style="display: none;">
         <div class="eq-bar"></div>
@@ -1124,6 +1280,7 @@
         <button class="play-pause-btn" id="playPauseBtn" title="Play/Pause">▶</button>
         <button class="control-btn" id="nextBtn" title="Next Track">⏭</button>
         <button class="control-btn" id="repeatBtn" title="Repeat Playlist">🔁</button>
+        <button class="control-btn active" id="extendedPlayBtn" title="Extended Play (Active): Seamlessly loops groove to full track duration (3:30+)">♾️</button>
       </div>
       <div class="scrubber-container">
         <span id="currentTime">0:00</span>
@@ -1135,6 +1292,12 @@
     </div>
 
     <div class="player-right">
+      <a id="youtubeFullBtn" href="https://www.youtube.com" target="_blank" class="btn-yt-full" style="display: none;" title="Stream 100% full original track on YouTube">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="#ff0033" style="vertical-align: middle;">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        <span>Full Track</span>
+      </a>
       <span style="font-size: 14px; color: var(--accent);">🔥</span>
       <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80">
     </div>
@@ -1197,6 +1360,10 @@
     let isShuffle = false;
     let repeatMode = 'all'; // 'all', 'one', 'off'
     let allSongsStaticCache = null;
+    let isExtendedPlay = true; // Seamless loop mode (loops 30s preview across full track duration)
+    let virtualLoopOffset = 0; // Accumulated seconds across loops
+    let activeTrackDuration = 210; // Real full duration of current song (seconds)
+    let isLocalAudio = false; // Whether user loaded their own offline MP3
 
     // HTML5 Real Audio Player instance
     const audioPlayer = new Audio();
@@ -1271,18 +1438,59 @@
     };
     audioPlayer.volume = volumeSlider.value / 100;
 
-    // Time update listener
+    // Time update listener with Extended Play support
     audioPlayer.ontimeupdate = () => {
-      if (audioPlayer.duration) {
-        const pct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+      if (isLocalAudio) {
+        const dur = audioPlayer.duration || activeTrackDuration;
+        if (dur) {
+          const pct = (audioPlayer.currentTime / dur) * 100;
+          scrubProgress.style.width = `${pct}%`;
+          currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+          totalTimeEl.textContent = formatTime(dur);
+        }
+        return;
+      }
+
+      if (isExtendedPlay) {
+        const clipTime = audioPlayer.currentTime;
+        const currentElapsed = virtualLoopOffset + clipTime;
+
+        if (currentElapsed >= activeTrackDuration) {
+          handleTrackEnded();
+          return;
+        }
+
+        currentTimeEl.textContent = formatTime(currentElapsed);
+        totalTimeEl.textContent = formatTime(activeTrackDuration);
+        const pct = Math.min((currentElapsed / activeTrackDuration) * 100, 100);
         scrubProgress.style.width = `${pct}%`;
-        currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
-        totalTimeEl.textContent = formatTime(audioPlayer.duration);
+      } else {
+        if (audioPlayer.duration) {
+          const pct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+          scrubProgress.style.width = `${pct}%`;
+          currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+          totalTimeEl.textContent = formatTime(audioPlayer.duration);
+        }
       }
     };
 
-    // Track ended listener: automatically play the NEXT song in the playlist!
+    // Track ended listener: loops in Extended Play mode, or advances to NEXT song!
     audioPlayer.onended = () => {
+      if (isLocalAudio) {
+        handleTrackEnded();
+        return;
+      }
+
+      if (isExtendedPlay) {
+        const clipDur = audioPlayer.duration || 30;
+        virtualLoopOffset += clipDur;
+        if (virtualLoopOffset < activeTrackDuration) {
+          audioPlayer.currentTime = 0;
+          audioPlayer.play().catch(e => console.log("Loop playback:", e));
+          return;
+        }
+      }
+
       handleTrackEnded();
     };
 
@@ -1341,6 +1549,10 @@
       const track = currentPlaylist[index];
       const activeGenreName = track.genre_name || (currentGenre ? currentGenre.name : 'Top 50');
 
+      isLocalAudio = !!track.is_local;
+      activeTrackDuration = track.duration_seconds || 210;
+      virtualLoopOffset = 0;
+
       // Stop current playback
       audioPlayer.pause();
       audioPlayer.currentTime = 0;
@@ -1350,9 +1562,37 @@
       // Update UI immediately
       playerTitle.textContent = track.song_title;
       playerArtist.textContent = track.artist_name;
-      totalTimeEl.textContent = formatTime(track.duration_seconds);
+      totalTimeEl.textContent = formatTime(activeTrackDuration);
       playerGenreBadge.style.display = 'inline-block';
       playerGenreBadge.textContent = `${activeGenreName} • Amaterasu`;
+
+      // Update YouTube Full Song button
+      const ytBtn = document.getElementById('youtubeFullBtn');
+      if (ytBtn) {
+        if (track.is_local) {
+          ytBtn.style.display = 'none';
+        } else {
+          ytBtn.style.display = 'inline-flex';
+          const query = encodeURIComponent(`${track.artist_name} ${track.song_title} official audio`);
+          ytBtn.href = `https://www.youtube.com/results?search_query=${query}`;
+          ytBtn.title = `Listen to 100% full original studio master of "${track.song_title}" on YouTube`;
+        }
+      }
+
+      // Update player mode tag
+      const modeTag = document.getElementById('playerModeTag');
+      if (modeTag) {
+        if (track.is_local) {
+          modeTag.textContent = "📁 FULL MP3";
+          modeTag.className = "player-mode-tag local";
+        } else if (isExtendedPlay) {
+          modeTag.textContent = "♾️ EXTENDED PLAY";
+          modeTag.className = "player-mode-tag extended";
+        } else {
+          modeTag.textContent = "⚡ 30s PREVIEW";
+          modeTag.className = "player-mode-tag preview";
+        }
+      }
 
       isPlaying = true;
       playPauseBtn.textContent = '⏸';
@@ -1362,8 +1602,25 @@
       // Highlight active row in table
       renderTracklist(currentPlaylist);
 
-      // Record streaming play in SQLite database
-      fetch(`/api/play/${track.song_id}`, { method: 'POST' }).catch(() => {});
+      // Record streaming play in SQLite database if applicable
+      if (!track.is_local && typeof track.song_id === 'number') {
+        fetch(`/api/play/${track.song_id}`, { method: 'POST' }).catch(() => {});
+      }
+
+      // If user loaded local audio file directly
+      if (track.is_local && track.local_url) {
+        playerCover.innerHTML = SHARINGAN_SVG_HTML;
+        audioPlayer.src = track.local_url;
+        audioPlayer.onloadedmetadata = () => {
+          if (track.is_local && audioPlayer.duration) {
+            track.duration_seconds = Math.round(audioPlayer.duration);
+            activeTrackDuration = track.duration_seconds;
+            totalTimeEl.textContent = formatTime(activeTrackDuration);
+          }
+        };
+        audioPlayer.play().catch(e => console.log("Local audio playback:", e));
+        return;
+      }
 
       // Fetch real studio audio stream & artwork
       const audioData = await fetchTrackAudio(track);
@@ -1388,6 +1645,7 @@
     function handleTrackEnded() {
       if (repeatMode === 'one') {
         audioPlayer.currentTime = 0;
+        virtualLoopOffset = 0;
         audioPlayer.play();
       } else if (isShuffle) {
         let randIdx = Math.floor(Math.random() * currentPlaylist.length);
@@ -1448,12 +1706,30 @@
       playTrack(prevIdx);
     }
 
-    // Scrubber seeking
+    // Scrubber seeking with Extended Play support
     scrubBar.onclick = (e) => {
-      if (!audioPlayer.duration) return;
       const rect = scrubBar.getBoundingClientRect();
-      const clickPos = (e.clientX - rect.left) / rect.width;
-      audioPlayer.currentTime = clickPos * audioPlayer.duration;
+      const clickPos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+
+      if (isLocalAudio) {
+        if (audioPlayer.duration) {
+          audioPlayer.currentTime = clickPos * audioPlayer.duration;
+        }
+        return;
+      }
+
+      if (isExtendedPlay) {
+        const targetSec = clickPos * activeTrackDuration;
+        const clipDur = audioPlayer.duration || 30;
+        virtualLoopOffset = Math.floor(targetSec / clipDur) * clipDur;
+        audioPlayer.currentTime = targetSec % clipDur;
+        currentTimeEl.textContent = formatTime(targetSec);
+        scrubProgress.style.width = `${clickPos * 100}%`;
+      } else {
+        if (audioPlayer.duration) {
+          audioPlayer.currentTime = clickPos * audioPlayer.duration;
+        }
+      }
     };
 
     // Shuffle & Repeat buttons
@@ -1500,11 +1776,11 @@
       renderTracklist(currentPlaylist);
     }
 
-    // Render Tracklist with Itachi Theme Badges
+    // Render Tracklist with Itachi Theme Badges & Full Track Links
     function renderTracklist(tracks) {
       tracklistBody.innerHTML = '';
       if (tracks.length === 0) {
-        tracklistBody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 40px; color: var(--text-dim); font-family: 'Cinzel', serif;">No recordings discovered in this realm.</td></tr>`;
+        tracklistBody.innerHTML = `<tr><td colspan="8" style="text-align: center; padding: 40px; color: var(--text-dim); font-family: 'Cinzel', serif;">No recordings discovered in this realm.</td></tr>`;
         return;
       }
 
@@ -1517,6 +1793,7 @@
         if (track.genre_rank === 1) rankBadge = `<span class="rank-badge-1">🥇 1</span>`;
         else if (track.genre_rank === 2) rankBadge = `<span class="rank-badge-2">🥈 2</span>`;
         else if (track.genre_rank === 3) rankBadge = `<span class="rank-badge-3">🥉 3</span>`;
+        else if (track.is_local) rankBadge = `<span style="color: #38bdf8; font-size: 14px;">★</span>`;
 
         const isLiked = favorites.has(track.song_id);
 
@@ -1545,6 +1822,15 @@
           </td>
           <td style="color: var(--text-muted); font-size: 13px;">${formatNumber(track.play_count)}</td>
           <td style="color: var(--text-dim); font-size: 13px; font-family: 'Cinzel', serif;">${formatTime(track.duration_seconds)}</td>
+          <td style="text-align: center;">
+            ${track.is_local ? `
+              <span style="font-size: 11px; color: #38bdf8; font-weight: 700; font-family: 'Cinzel', serif;">OFFLINE</span>
+            ` : `
+              <a class="row-yt-btn" href="https://www.youtube.com/results?search_query=${encodeURIComponent(track.artist_name + ' ' + track.song_title + ' official audio')}" target="_blank" title="Stream 100% full original studio master on YouTube" onclick="event.stopPropagation()">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="#ff0033" style="vertical-align: middle;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> Full YT
+              </a>
+            `}
+          </td>
           <td>
             <button class="like-btn ${isLiked ? 'liked' : ''}" onclick="toggleLike(event, ${track.song_id})">
               ${isLiked ? '❤️' : '🤍'}
@@ -1553,7 +1839,7 @@
         `;
 
         tr.onclick = (e) => {
-          if (e.target.closest('.like-btn')) return;
+          if (e.target.closest('.like-btn') || e.target.closest('.row-yt-btn')) return;
           if (isCurrent) {
             togglePlayPause();
           } else {
@@ -1564,7 +1850,7 @@
         tracklistBody.appendChild(tr);
 
         // Pre-fetch cover thumbnail for top 6 items in view
-        if (idx < 6) {
+        if (idx < 6 && !track.is_local) {
           fetchTrackAudio(track).then(data => {
             const thumb = document.getElementById(`thumb-${track.song_id}`);
             if (thumb && data.artwork_url) {
@@ -1793,6 +2079,70 @@
     playAllBtn.onclick = () => {
       if (currentPlaylist.length > 0) playTrack(0);
     };
+
+    // Extended Play Toggle
+    const extendedPlayBtn = document.getElementById('extendedPlayBtn');
+    if (extendedPlayBtn) {
+      extendedPlayBtn.onclick = () => {
+        isExtendedPlay = !isExtendedPlay;
+        extendedPlayBtn.classList.toggle('active', isExtendedPlay);
+        extendedPlayBtn.title = isExtendedPlay 
+          ? "Extended Play (Active): Seamlessly loops groove to full track duration (3:30+)" 
+          : "Extended Play (Off): Play 30s preview only";
+
+        const modeTag = document.getElementById('playerModeTag');
+        if (modeTag && !isLocalAudio) {
+          modeTag.textContent = isExtendedPlay ? "♾️ EXTENDED PLAY" : "⚡ 30s PREVIEW";
+          modeTag.className = isExtendedPlay ? "player-mode-tag extended" : "player-mode-tag preview";
+        }
+
+        virtualLoopOffset = 0;
+        if (!isExtendedPlay && audioPlayer.duration) {
+          totalTimeEl.textContent = formatTime(audioPlayer.duration);
+        } else {
+          totalTimeEl.textContent = formatTime(activeTrackDuration);
+        }
+      };
+    }
+
+    // Local Full MP3 Audio Upload
+    const localMp3Input = document.getElementById('localMp3Input');
+    const openMp3Btn = document.getElementById('openMp3Btn');
+    const bannerMp3Btn = document.getElementById('bannerMp3Btn');
+
+    function triggerMp3Upload() {
+      if (localMp3Input) localMp3Input.click();
+    }
+    if (openMp3Btn) openMp3Btn.onclick = triggerMp3Upload;
+    if (bannerMp3Btn) bannerMp3Btn.onclick = triggerMp3Upload;
+
+    if (localMp3Input) {
+      localMp3Input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const objectUrl = URL.createObjectURL(file);
+        const fileName = file.name.replace(/\.[^/.]+$/, "");
+
+        const localTrack = {
+          song_id: 'local_' + Date.now(),
+          song_title: fileName,
+          artist_name: 'Local Audio File (Offline)',
+          album_title: file.type || 'Custom MP3',
+          genre_id: currentGenre ? currentGenre.genre_id : 1,
+          genre_name: 'Local Master',
+          genre_rank: '★',
+          duration_seconds: 240,
+          play_count: 1,
+          popularity_score: 100,
+          is_local: true,
+          local_url: objectUrl
+        };
+
+        currentPlaylist.unshift(localTrack);
+        renderTracklist(currentPlaylist);
+        playTrack(0);
+      };
+    }
 
     init();
   </script>
